@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Top of the Rock – Private Rock of Gibraltar Tours</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Top of the Rock – private Rock of Gibraltar tours with local guides. Small groups, flexible itineraries and unforgettable time with the macaques.">
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --accent: #f5b301;
+      --accent-soft: rgba(245,179,1,0.1);
+      --text: #f5f5f5;
+      --muted: #a9b0c5;
+      --card: #111827;
+      --border: #1f2937;
+      --danger: #ef4444;
+      --shadow-soft: 0 18px 45px rgba(15,23,42,0.65);
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 45%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .shell {
+      width: 100%;
+      max-width: 1120px;
+      padding: 20px 18px 64px;
+      margin: 0 auto;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0 18px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 30% 0%, #facc15 0, #f97316 40%, #ea580c 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(234,88,12,0.6);
+      font-size: 20px;
+      font-weight: 800;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-text span:first-child {
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+    .brand-text span:last-child {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .nav-links a {
+      position: relative;
+      padding: 4px 0;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0; bottom: -4px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg,#facc15,#f97316);
+      transition: width 0.2s ease-out;
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      padding: 7px 16px;
+      border-radius: var(--radius-pill);
+      background: linear-gradient(135deg,#facc15,#f97316);
+      color: #020617;
+      font-weight: 600;
+      font-size: 13px;
+      box-shadow: 0 10px 25px rgba(234,88,12,0.65);
+      border: none;
+      cursor: pointer;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 2.4fr);
+      gap: 28px;
+      align-items: center;
+      padding: 16px 0 40px;
+    }
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; }
+    }
+    .hero-kicker {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .hero-title {
+      font-size: clamp(28px, 5vw, 38px);
+      line-height: 1.07;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      margin-bottom: 14px;
+    }
+    .hero-title span {
+      background: linear-gradient(120deg,#facc15,#f97316,#facc15);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .hero-sub {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.35);
+      background: radial-gradient(circle at top left, rgba(248,250,252,0.05), rgba(15,23,42,0.9));
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle,#4ade80 0,#16a34a 60%,#166534 100%);
+      box-shadow: 0 0 0 4px rgba(74,222,128,0.25);
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .btn-primary {
+      padding: 10px 20px;
+      border-radius: var(--radius-pill);
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg,#facc15,#f97316);
+      color: #020617;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 16px 40px rgba(234,88,12,0.7);
+    }
+    .btn-ghost {
+      padding: 9px 16px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148,163,184,0.45);
+      background: rgba(15,23,42,0.7);
+      color: var(--muted);
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .hero-meta strong { color: #e5e7eb; }
+
+    .hero-media {
+      position: relative;
+      padding: 10px;
+    }
+    .hero-card {
+      border-radius: 26px;
+      overflow: hidden;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 60%);
+      border: 1px solid rgba(148,163,184,0.3);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+    }
+    .hero-photo {
+      aspect-ratio: 4/3;
+      background-image:
+        linear-gradient(135deg, rgba(15,23,42,0.1), rgba(15,23,42,0.85)),
+        url("https://images.pexels.com/photos/2929917/pexels-photo-2929917.jpeg?auto=compress&cs=tinysrgb&w=1200");
+      background-size: cover;
+      background-position: center;
+    }
+    .hero-label {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.86);
+      border: 1px solid rgba(148,163,184,0.4);
+      font-size: 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: #e5e7eb;
+      backdrop-filter: blur(8px);
+    }
+    .hero-label span {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: radial-gradient(circle,#facc15 0,#fb923c 45%,#b45309 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: #020617;
+    }
+    .hero-floating-card {
+      position: absolute;
+      top: 12px;
+      right: 6px;
+      background: rgba(15,23,42,0.92);
+      border-radius: 18px;
+      border: 1px solid rgba(148,163,184,0.5);
+      padding: 9px 11px;
+      font-size: 11px;
+      color: var(--muted);
+      backdrop-filter: blur(12px);
+      max-width: 180px;
+      box-shadow: 0 18px 35px rgba(15,23,42,0.9);
+    }
+    .hero-floating-card strong {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #e5e7eb;
+      margin-bottom: 3px;
+    }
+
+    section {
+      margin-top: 28px;
+      padding: 22px 20px;
+      background: linear-gradient(145deg, rgba(15,23,42,0.95), rgba(2,6,23,0.95));
+      border-radius: 26px;
+      border: 1px solid rgba(31,41,55,0.95);
+      box-shadow: var(--shadow-soft);
+    }
+    section + section { margin-top: 22px; }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+    .section-kicker {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+    .section-desc {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .tour-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 2.1fr);
+      gap: 22px;
+    }
+    @media (max-width: 800px) {
+      .tour-grid { grid-template-columns: 1fr; }
+    }
+    .tour-meta-list {
+      list-style: none;
+      font-size: 13px;
+      color: var(--muted);
+      display: grid;
+      gap: 6px;
+      margin-top: 6px;
+    }
+    .tour-meta-list li strong {
+      color: #e5e7eb;
+      font-weight: 600;
+      margin-right: 6px;
+    }
+    .highlight-box {
+      padding: 12px 13px;
+      border-radius: 18px;
+      background: radial-gradient(circle at top left, rgba(248,250,252,0.04), rgba(15,23,42,1));
+      border: 1px solid rgba(55,65,81,0.9);
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .highlight-box p strong { color: #e5e7eb; }
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .tag {
+      font-size: 11px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(75,85,99,0.9);
+      color: var(--muted);
+    }
+
+    .itinerary-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .itinerary-item {
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .itinerary-badge {
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      background: radial-gradient(circle,rgba(248,250,252,0.05),rgba(15,23,42,0.95));
+      font-size: 12px;
+      color: #e5e7eb;
+    }
+    .itinerary-item h4 {
+      font-size: 13px;
+      margin-bottom: 2px;
+      color: #e5e7eb;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+    }
+    .pricing-card {
+      border-radius: 22px;
+      padding: 14px 14px 15px;
+      background: radial-gradient(circle at top, rgba(15,23,42,0.9), rgba(2,6,23,0.98));
+      border: 1px solid rgba(55,65,81,0.95);
+      box-shadow: 0 18px 40px rgba(15,23,42,0.8);
+    }
+    .pricing-card.featured {
+      border-color: rgba(234,179,8,0.95);
+      background: radial-gradient(circle at top, rgba(251,191,36,0.12), rgba(15,23,42,1));
+    }
+    .pricing-name {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .pricing-note {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .pricing-price {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .pricing-price span {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--muted);
+      margin-left: 4px;
+    }
+    .pricing-meta {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .pricing-bullets {
+      list-style: none;
+      font-size: 12px;
+      color: var(--muted);
+      display: grid;
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+    .pricing-bullets li::before {
+      content: "• ";
+      color: #facc15;
+    }
+    .pricing-cta {
+      width: 100%;
+      margin-top: 6px;
+      padding: 8px 0;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+      background: rgba(15,23,42,0.9);
+      color: #e5e7eb;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .pricing-card.featured .pricing-cta {
+      background: linear-gradient(135deg,#facc15,#fb923c);
+      color: #020617;
+      border-color: transparent;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .feature-card {
+      border-radius: 20px;
+      padding: 12px 13px;
+      background: rgba(15,23,42,0.95);
+      border: 1px solid rgba(55,65,81,0.95);
+    }
+    .feature-card h4 {
+      font-size: 13px;
+      margin-bottom: 4px;
+      color: #e5e7eb;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.6fr);
+      gap: 18px;
+    }
+    @media (max-width: 800px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+    .quote-card {
+      border-radius: 20px;
+      padding: 14px 14px 16px;
+      background: radial-gradient(circle at top left, rgba(248,250,252,0.05), rgba(15,23,42,0.98));
+      border: 1px solid rgba(75,85,99,0.9);
+      font-size: 13px;
+      color: var(--muted);
+      position: relative;
+      overflow: hidden;
+    }
+    .quote-card::before {
+      content: "“";
+      position: absolute;
+      top: -16px;
+      left: 8px;
+      font-size: 50px;
+      color: rgba(55,65,81,0.5);
+      pointer-events: none;
+    }
+    .quote-text {
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+    .quote-meta {
+      font-size: 12px;
+      color: #e5e7eb;
+      position: relative;
+      z-index: 1;
+    }
+    .quote-meta span {
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .faq-item h4 {
+      font-size: 13px;
+      margin-bottom: 4px;
+      color: #e5e7eb;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.5fr);
+      gap: 18px;
+    }
+    @media (max-width: 800px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    .contact-form {
+      display: grid;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .field {
+      display: grid;
+      gap: 4px;
+    }
+    .field label {
+      font-size: 12px;
+      color: #e5e7eb;
+    }
+    .field input,
+    .field textarea,
+    .field select {
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(55,65,81,0.9);
+      background: rgba(15,23,42,0.9);
+      color: #e5e7eb;
+      font: inherit;
+      resize: vertical;
+    }
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: rgba(148,163,184,0.7);
+    }
+    .contact-submit {
+      margin-top: 4px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg,#facc15,#fb923c);
+      color: #020617;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(234,88,12,0.7);
+      justify-self: flex-start;
+    }
+    .contact-details {
+      font-size: 13px;
+      color: var(--muted);
+      display: grid;
+      gap: 8px;
+    }
+    .contact-details strong { color: #e5e7eb; }
+    .contact-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #facc15;
+      font-size: 11px;
+      margin-bottom: 4px;
+      border: 1px solid rgba(234,179,8,0.6);
+    }
+
+    footer {
+      padding: 22px 18px 26px;
+      font-size: 11px;
+      color: var(--muted);
+      border-top: 1px solid rgba(31,41,55,0.9);
+      margin-top: auto;
+    }
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .footer-links a {
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="shell">
+      <header class="nav">
+        <div class="brand">
+          <div class="brand-logo">TR</div>
+          <div class="brand-text">
+            <span>Top of the Rock</span>
+            <span>Rock of Gibraltar tours</span>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="#tour">Tour</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#why">Why us</a>
+          <a href="#faq">FAQ</a>
+          <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+            Book a tour
+          </button>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div>
+            <div class="hero-kicker">Private Rock of Gibraltar tours</div>
+            <h1 class="hero-title">
+              See the Rock like a local.<br />
+              <span>Top of the Rock private tours.</span>
+            </h1>
+            <p class="hero-sub">
+              Small, flexible tours of the Rock of Gibraltar with a local father‑and‑son team.
+              Skip the crowds, enjoy the views and meet the famous macaques safely.
+            </p>
+
+            <div class="hero-badges">
+              <div class="pill">
+                <div class="pill-dot"></div>
+                Licensed local guides
+              </div>
+              <div class="pill">
+                ⭐ 5.0 average guest feedback
+              </div>
+              <div class="pill">
+                Max 6 guests per vehicle
+              </div>
+            </div>
+
+            <div class="hero-actions">
+              <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+                Check availability
+              </button>
+              <button class="btn-ghost" onclick="document.getElementById('tour').scrollIntoView({behavior:'smooth'})">
+                View itinerary
+              </button>
+            </div>
+
+            <div class="hero-meta">
+              <div><strong>Tour length:</strong> approx 2–2.5 hours</div>
+              <div><strong>Pick‑up:</strong> Frontier, hotel or town centre</div>
+              <div><strong>Language:</strong> English (Spanish available on request)</div>
+            </div>
+          </div>
+
+          <div class="hero-media">
+            <div class="hero-card">
+              <div class="hero-photo"></div>
+              <div class="hero-label">
+                <span>🐒</span>
+                Meet the macaques up close (no feeding, no touching – we keep it safe for you and for them).
+              </div>
+              <div class="hero-floating-card">
+                <strong>Real guests, real memories</strong>
+                “Professional, friendly and full of local stories – the best way to discover Gibraltar in one morning.”
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="tour">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">The experience</div>
+              <h2 class="section-title">Your Top of the Rock tour</h2>
+            </div>
+            <p class="section-desc">
+              A relaxed, private circuit of the Rock covering the key viewpoints, the Upper Rock Nature Reserve and time with the macaques.
+            </p>
+          </div>
+
+          <div class="tour-grid">
+            <div>
+              <p class="section-desc">
+                Your tour starts with pick‑up at the frontier, your hotel or a central meeting point.
+                From there, we drive up into the Upper Rock, stopping for views, photos and stories at each landmark.
+              </p>
+              <ul class="tour-meta-list">
+                <li><strong>Typical highlights:</strong> Pillars of Hercules, St Michael’s Cave, Skywalk, Great Siege Tunnels, macaque viewing areas.</li>
+                <li><strong>Access:</strong> Comfortable 7/8‑seater vehicle, air‑conditioned.</li>
+                <li><strong>Group size:</strong> Private bookings only (no mixing with other groups).</li>
+                <li><strong>Flexibility:</strong> Adjust timings at stops to suit families, photographers or limited mobility.</li>
+              </ul>
+
+              <div class="tag-row">
+                <span class="tag">Family‑friendly</span>
+                <span class="tag">Photo stops at every viewpoint</span>
+                <span class="tag">Flexible pick‑up & drop‑off</span>
+              </div>
+            </div>
+
+            <div class="highlight-box">
+              <p>
+                <strong>Safe, respectful macaque encounters.</strong>
+                The Barbary macaques are wild animals, not a theme‑park attraction. We explain how to stand, where to keep your hands and what to avoid, so you can enjoy them up close without stress.
+              </p>
+              <p style="margin-top:8px;">
+                We never encourage feeding, shouting or grabbing. This protects you, other visitors and the monkeys themselves.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Suggested route</div>
+              <h2 class="section-title">Sample 2–2.5 hour itinerary</h2>
+            </div>
+            <p class="section-desc">
+              Exact route may vary depending on traffic, weather and your interests, but this gives you a clear idea of what to expect.
+            </p>
+          </div>
+
+          <ul class="itinerary-list">
+            <li class="itinerary-item">
+              <div class="itinerary-badge">01</div>
+              <div>
+                <h4>Pick‑up and introduction</h4>
+                <p>Meet at the frontier, your hotel or a central point in town. Brief overview of the Rock, history and safety around the macaques.</p>
+              </div>
+            </li>
+            <li class="itinerary-item">
+              <div class="itinerary-badge">02</div>
+              <div>
+                <h4>Pillars of Hercules viewpoint</h4>
+                <p>Panoramic views over the Strait of Gibraltar and the meeting point of the Atlantic and the Mediterranean.</p>
+              </div>
+            </li>
+            <li class="itinerary-item">
+              <div class="itinerary-badge">03</div>
+              <div>
+                <h4>St Michael’s Cave</h4>
+                <p>Walk through the illuminated limestone caverns and hear how the Rock was formed and used in wartime.</p>
+              </div>
+            </li>
+            <li class="itinerary-item">
+              <div class="itinerary-badge">04</div>
+              <div>
+                <h4>Skywalk & Upper Rock viewpoints</h4>
+                <p>Glass platform experience (for those who want it) and stop‑offs for photos of Gibraltar, Spain and, on a clear day, Morocco.</p>
+              </div>
+            </li>
+            <li class="itinerary-item">
+              <div class="itinerary-badge">05</div>
+              <div>
+                <h4>Macaque time</h4>
+                <p>Guided time with the macaques at a suitable spot, with clear guidance on how to stand and behave so everyone stays safe and relaxed.</p>
+              </div>
+            </li>
+            <li class="itinerary-item">
+              <div class="itinerary-badge">06</div>
+              <div>
+                <h4>Return to town / frontier</h4>
+                <p>Drive back down with optional extra photo stop if time allows, then drop‑off at your preferred location.</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section id="pricing">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Simple pricing</div>
+              <h2 class="section-title">Private tour rates</h2>
+            </div>
+            <p class="section-desc">
+              One clear price per vehicle, not per person. Pay on the day in cash or in advance by card or bank transfer.
+            </p>
+          </div>
+
+          <div class="pricing-grid">
+            <article class="pricing-card featured">
+              <div class="pricing-name">Top of the Rock – Standard Tour</div>
+              <div class="pricing-note">Approx 2–2.5 hours • Best for first‑time visitors</div>
+              <div class="pricing-price">£XXX<span>per private vehicle (up to X guests)</span></div>
+              <div class="pricing-meta">Includes pick‑up, all main viewpoints and guided macaque time.</div>
+              <ul class="pricing-bullets">
+                <li>Frontier / hotel / town pick‑up</li>
+                <li>Stops at key viewpoints and St Michael’s Cave</li>
+                <li>Guided, safe macaque visit</li>
+                <li>Drop‑off at your chosen spot</li>
+              </ul>
+              <button class="pricing-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+                Request this tour
+              </button>
+            </article>
+
+            <article class="pricing-card">
+              <div class="pricing-name">Top of the Rock – Extended Tour</div>
+              <div class="pricing-note">Approx 3+ hours • Add more photo stops or town drive‑through</div>
+              <div class="pricing-price">£YYY<span>per private vehicle (up to X guests)</span></div>
+              <div class="pricing-meta">For guests who want a slower pace or extra time at certain stops.</div>
+              <ul class="pricing-bullets">
+                <li>Everything in the Standard tour</li>
+                <li>Extra time for photos or a café stop</li>
+                <li>Option to see more of town by vehicle</li>
+              </ul>
+              <button class="pricing-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+                Ask about availability
+              </button>
+            </article>
+          </div>
+        </section>
+
+        <section id="why">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Why guests choose us</div>
+              <h2 class="section-title">Family‑run, local and flexible</h2>
+            </div>
+            <p class="section-desc">
+              This is not a big coach tour. Just you, your guide and Gibraltar.
+            </p>
+          </div>
+
+          <div class="features-grid">
+            <article class="feature-card">
+              <h4>Local father‑and‑son team</h4>
+              <p>Years of experience living and working around the Rock. Guests get stories you will not hear on a loudspeaker bus.</p>
+            </article>
+            <article class="feature-card">
+              <h4>Private tours only</h4>
+              <p>No strangers in your vehicle. Adjust the pace for children, grandparents, photographers or nervous heights.</p>
+            </article>
+            <article class="feature-card">
+              <h4>Respect for the macaques</h4>
+              <p>Clear guidance, no feeding and no grabbing. Enjoy close‑up encounters without putting anyone at risk.</p>
+            </article>
+            <article class="feature-card">
+              <h4>Flexible pick‑up and timing</h4>
+              <p>Morning, afternoon or early evening departures, whenever possible. Let us know your ship or flight times.</p>
+            </article>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Guest feedback</div>
+              <h2 class="section-title">What visitors say</h2>
+            </div>
+            <p class="section-desc">
+              A few examples from recent guests. Ask for more references if you need them.
+            </p>
+          </div>
+
+          <div class="testimonials-grid">
+            <article class="quote-card">
+              <p class="quote-text">
+                “From the moment we met at the frontier we felt in good hands. The tour was relaxed, never rushed, and our kids loved the monkeys while we felt completely safe.”
+              </p>
+              <div class="quote-meta">
+                Sarah & Daniel – UK
+                <span>Family of four, morning Top of the Rock tour</span>
+              </div>
+            </article>
+            <article class="quote-card">
+              <p class="quote-text">
+                “Perfect way to see Gibraltar in half a day. Plenty of history, fantastic views and time for photos at every stop. Highly recommended for cruise visitors.”
+              </p>
+              <div class="quote-meta">
+                Michael – USA
+                <span>Cruise passenger, standard Top of the Rock tour</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="faq">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Good to know</div>
+              <h2 class="section-title">Frequently asked questions</h2>
+            </div>
+            <p class="section-desc">
+              Practical details to help you decide and get ready for your tour.
+            </p>
+          </div>
+
+          <div class="faq-grid">
+            <div class="faq-item">
+              <h4>How do we pay?</h4>
+              <p>Most guests pay cash on the day in GBP or EUR. Card or bank transfer in advance may be possible – please ask when you book.</p>
+            </div>
+            <div class="faq-item">
+              <h4>Is the tour suitable for children?</h4>
+              <p>Yes. We regularly host families with young children. We simply ask that children follow instructions and stay close to adults near the macaques.</p>
+            </div>
+            <div class="faq-item">
+              <h4>What should we wear?</h4>
+              <p>Comfortable shoes, a light jacket (it can be windy at the top) and sunscreen in warmer months. Avoid loose plastic bags around the monkeys.</p>
+            </div>
+            <div class="faq-item">
+              <h4>Can you work around cruise or flight times?</h4>
+              <p>In most cases, yes. Tell us your arrival and departure times when you enquire so we can suggest the best slot.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Plan your visit</div>
+              <h2 class="section-title">Check date & book</h2>
+            </div>
+            <p class="section-desc">
+              Send a quick message with your preferred date, time and group size. We will confirm availability and final price.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <form class="contact-form">
+              <div class="contact-badge">No advance payment required for most bookings</div>
+
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your full name" required />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" required />
+              </div>
+              <div class="field">
+                <label for="whatsapp">Mobile / WhatsApp</label>
+                <input id="whatsapp" name="whatsapp" type="tel" placeholder="+44…" />
+              </div>
+              <div class="field">
+                <label for="date">Preferred date</label>
+                <input id="date" name="date" type="date" />
+              </div>
+              <div class="field">
+                <label for="time">Preferred time</label>
+                <select id="time" name="time">
+                  <option value="">Select...</option>
+                  <option>Morning</option>
+                  <option>Afternoon</option>
+                  <option>Flexible</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="people">Number of people</label>
+                <input id="people" name="people" type="number" min="1" max="8" placeholder="e.g. 4" />
+              </div>
+              <div class="field">
+                <label for="message">Anything we should know?</label>
+                <textarea id="message" name="message" rows="3" placeholder="Cruise times, mobility needs, ages of children, special requests…"></textarea>
+              </div>
+
+              <button type="submit" class="contact-submit">
+                Send enquiry
+              </button>
+            </form>
+
+            <div class="contact-details">
+              <p><strong>Direct contact</strong></p>
+              <p>Email: <a href="mailto:info@topoftherock.gi">info@topoftherock.gi</a></p>
+              <p>Phone / WhatsApp: <a href="tel:+350XXXXXXX">+350 XXX XXX XX</a></p>
+              <p>Pick‑up: Gibraltar frontier, hotels and central meeting points by arrangement.</p>
+              <p><strong>Operating hours</strong><br/>Most days, morning and afternoon. Early evening on request in summer.</p>
+              <p><strong>Last‑minute bookings</strong><br/>If you are already in Gibraltar today, call or send a WhatsApp message for fastest reply.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <div class="footer-inner">
+        <div>© <span id="year"></span> Top of the Rock. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="#tour">Tour</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
